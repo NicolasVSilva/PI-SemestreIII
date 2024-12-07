@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>EnvolveFit</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/botao.css">
+    <link rel="stylesheet" href="css/tooplate-gymso-style.css">
+</head>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <!-- BARRA DE NAVEGAÇÃO -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="indexLogado.html">EvolveFit</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link smoothScroll">Ver treino</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#class" class="nav-link smoothScroll">Aulas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#schedule" class="nav-link smoothScroll">Tabela de Series</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="meutreino.html" class="nav-link smoothScroll">Treinar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero7 d-flex flex-column justify-content-center align-items-center" id="home">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto col-12">
+                    <div class="hero-text mt-5 text-center">
+                        <h6 data-aos="fade-up" data-aos-delay="300">Crie treinos personalizados</h6>
+                        <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Meu treino</h1>
+                        <a href="#class" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Comece agora</a>
+                        <!-- Link para abrir o modal -->
+                        <a href="#formNovoTreino" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Criar treino</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exibir os Exercícios -->
+    <section class="class section" id="class">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-12 text-center mb-5">
+                    <h6 data-aos="fade-up">Chegou o seu momento...</h6>
+                    <h2 data-aos="fade-up" data-aos-delay="200">Hora do treino!</h2>
+                </div>
+
+    <!-- Formulário para Criar Treino -->
+    <form id="formNovoTreino">
+        <div class="form-group">
+            <label for="nomeTreino">Nome do Treino</label>
+            <input type="text" class="form-control" id="nomeTreino" placeholder="Nome do treino" required>
+        </div>
+
+        <div class="form-group">
+            <label for="exercicio">Escolha um Exercício</label>
+
+
+<!-- Seletor de exercício -->
+<select id="exercicioSelect" class="form-control">
+    <option value="">Escolha um exercício</option>
+</select>
+
+<!-- Botão para adicionar o exercício selecionado à pilha -->
+<button id="adicionarPilha" class="btn btn-danger mt-3">Adicionar à pilha</button>
+
+<a id="treinar" href="meuTreino.html" class="btn btn-danger mt-3">TREINAR</a> <!-- Botão agora é um link -->
+
+<!-- Exibir a pilha de exercícios -->
+<h4 class="mt-4">Sua Pilha de Exercícios:</h4>
+<div id="pilhaExercicios"></div>
+
+<!-- Botão para limpar a pilha -->
+<button id="limparPilha" class="btn btn-danger mt-3">Limpar Pilha</button>
+
+<section class="class section" id="class">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-12 text-center mb-5">
+                <h2 data-aos="fade-up" data-aos-delay="200"> </h2>
+            </div>
+
+
+<!-- Tabela de séries -->
+<section class="schedule section" id="schedule">
+    <div class="container">
+         <div class="row">
+
+                 <div class="col-lg-12 col-12 text-center">
+                     <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Diferentes adaptações para o seu treino</h2>
+                  </div>
+
+                  <div class="col-lg-12 py-5 col-md-12 col-12">
+                      <table class="table table-bordered table-responsive schedule-table" data-aos="fade-up" data-aos-delay="300">
+
+                          <thead class="thead-light">
+                              <th><i class="x"></i></th>
+                              <th>Membros Superiores</th>
+                              <th>Membros Inferiores</th>
+                              <th>Membros Superiores + Cardio</th>
+                              <th>Membros Inferiores + Cardio</th>
+                              <th>Cardio</th>
+                          </thead>
+
+                          <tbody>
+                              <tr>
+                                 <td><small></small></td>
+                                 <td>
+                                     <strong>Aquecimento em ritmo leve</strong>
+                                     <span>10 minutos</span>
+                                 </td>
+                                 <td>
+                                     <strong>Aquecimento em ritmo leve</strong>
+                                     <span>10 minutos</span>
+                                 </td>
+                                 <td>
+                                    <strong>Aquecimento em ritmo moderado</strong>
+                                     <span>10 - 15 minutos</span>
+                                 </td>
+                                 <td>
+                                    <strong>Aquecimento em ritmo moderado</strong>
+                                     <span>10 - 15 minutos</span>
+                                 </td>
+                                 <td>
+                                     <strong>Esteira ou Corrida</strong>
+                                     <span>20 - 30 min</span>
+                                 </td>
+                              </tr>
+
+                              <tr>
+                                 <td><small></small></td>
+                                 <td>
+                                    <strong>3 para Membros anteriores/frontais</strong>
+                                    <span>3-4 séries com elevação de carga</span>
+                                    <span>12 reps ou até a falha</span>
+                                 </td>
+
+                                 <td>
+                                    <strong>3 para Membros anteriores/frontais</strong>
+                                    <span>3-4 séries com elevação de carga</span>
+                                    <span>12 reps ou até a falha</span>
+
+                                 </td>
+                                 <td>
+                                    <strong>2 para Membros anteriores/frontais</strong>
+                                    <span>3-4 séries com elevação de carga</span>
+                                    <span>12 reps ou até a falha</span>
+                                 </td>
+                                 <td>
+                                     <strong>2 para Membros anteriores/frontais</strong>
+                                    <span>3-4 séries com elevação de carga</span>
+                                    <span>12 reps ou até a falha</span>
+                                 </td>
+                                 <td>
+                                    <strong>Agachamento com peso adequado</strong>
+                                    <span>20 reps x 4 séries</span>
+                                 </td>
+                              </tr>
+
+                              <tr>
+                                 <td><small></small></td>
+                                 <td>
+                                    <strong>3 para Membros posteriores/traseiros</strong>
+                                    <span>3-4 séries com elevação de carga</span>
+                                    <span>12 reps ou até a falha</span>
+                                 </td>
+                                 <td>
+                                    <strong>3 para Membros posteriores/traseiros</strong>
+                                    <span>3-4 séries com elevação de carga</span>
+                                    <span>12 reps ou até a falha</span>
+                                 </td>
+                                 <td>
+                                    <strong>2 para Membros posteriores/traseiros</strong>
+                                    <span>3-4 séries com elevação de carga</span>
+                                    <span>12 reps ou até a falha</span>
+                                 </td>
+                                 <td>
+                                    <strong>2 para Membros posteriores/traseiros</strong>
+                                    <span>3-4 séries com elevação de carga</span>
+                                    <span>12 reps ou até a falha</span>
+                                 </td>
+                                 <td>
+                                     <strong>Abdominal</strong>
+                                     <span>20-40 reps x 4 séries</span>
+                                 </td>
+                              </tr>
+
+                              <tr>
+                                 <td><small></small></td>
+                                 <td>
+                                     <strong>Alongamento</strong>
+                                     <span>5 minutos</span>
+                                 </td>
+                                 <td>
+                                    <strong>Alongamento</strong>
+                                     <span>5 minutos</span>
+                                 </td>
+                                 <td>
+                                    <strong>Cardio personalizado</strong>
+                                     <span>10-15 min</span>
+                                 </td>
+                                 <td>
+                                    <strong>Cardio personalizado</strong>
+                                    <span>10-15 min</span>
+                                 </td>
+                                 <td>
+                                    <strong>Alongamento</strong>
+                                     <span>5 minutos</span>
+                                 </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="col-lg-12 col-12 text-center">
+                    <h6 data-aos="fade-up">Atenção! verifique com instrutor se você esta apto as sessões apresentadas.</h6>
+         </div>
+    </div>
+</section>
+
+
+<section class="class section" id="class">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-12 text-center mb-5">
+                <h2 data-aos="fade-up" data-aos-delay="200">Alguma dúvida? Confira as execuções e nomes!</h2>
+            </div>
+
+                <!-- Aqui a lista de exercícios será exibida -->
+                <div id="listaExercicios" class="row"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="ml-auto col-lg-4 col-md-5">
+                    <p class="copyright-text"><br> <a href="https://www.tooplate.com"></a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/telaTreinos.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/mascaradetelefone.js"></script>
+
+    <!-- Script para adicionar exercício -->
+    <script>
+        document.getElementById('adicionarExercicioBtn').addEventListener('click', function() {
+            const exercicioSelect = document.getElementById('exercicio');
+            const selectedOption = exercicioSelect.options[exercicioSelect.selectedIndex];
+            
+            if (selectedOption.value !== '') {
+                const listaExercicios = document.getElementById('listaExercicios');
+                const newDiv = document.createElement('div');
+                newDiv.classList.add('col-lg-4', 'col-md-6', 'col-12');
+                newDiv.innerHTML = `<p>${selectedOption.text}</p>`;
+                listaExercicios.appendChild(newDiv);
+            }
+        });
+    </script>
+</body>
+</html>

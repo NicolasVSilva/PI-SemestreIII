@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+     <title>EnvolveFit</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="css/aos.css">
+     <link rel="stylesheet" href="css/botao.css">
+
+     <!-- CSS PRINCIPAL -->
+     <link rel="stylesheet" href="css/tooplate-gymso-style.css">
+
+</head>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <!-- BARRA DE NAVEGAÇÃO -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="indexLogado.html">EvolveFit</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link smoothScroll">Ver treino</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link smoothScroll">Desconectar</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#class" class="nav-link smoothScroll">Aulas</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#schedule" class="nav-link smoothScroll">Tabela de Series</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="telaTreinos.html" class="nav-link smoothScroll">Mais Exercícios</a>
+                    </li>
+
+                </ul>
+
+                
+            </div>
+
+        </div>
+    </nav>
+
+
+     <!-- HERO -->
+     <section class="hero9 d-flex flex-column justify-content-center align-items-center" id="home">
+
+            <div class="bg-overlay"></div>
+
+               <div class="container">
+                    <div class="row">
+
+                         <div class="col-lg-8 col-md-10 mx-auto col-12">
+''                              <div class="hero-text mt-5 text-center">
+
+                                    <h6 data-aos="fade-up" data-aos-delay="300"></h6>
+
+                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Treino de hoje!</h1>
+
+                              </div>
+                         </div>
+
+                    </div>
+               </div>
+     </section>
+
+    
+
+     
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Treino</title>
+    <style>
+
+    /* Estilo do botão */
+    #botaoConfirma {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: lightgray;
+        border: 1px solid #ccc;
+        transition: background-color 0.3s;
+    }
+
+    #botaoTerminar {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: rgb(255, 0, 0);
+        border: 1px solid #ccc;
+        transition: background-color 0.3s;
+        margin-top: 20px;
+    }
+
+    #botaotreino {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: rgb(255, 0, 0);
+        border: 1px solid #ff0000;
+        transition: background-color 0.3s;
+        margin-top: 20px;
+    }
+
+</style>
+</head>
+<body>
+
+
+<div id="treinoContainer"></div>
+<button id="botaoTerminar" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Terminar Treino</button>
+<script>
+// Recuperando a pilha de exercícios da localStorage
+const pilhaDeExercicios = JSON.parse(localStorage.getItem('pilhaExercicios')) || [];
+
+console.log('Pilha recuperada:', pilhaDeExercicios);  // Verificando o conteúdo da pilha
+
+const container = document.getElementById('treinoContainer');
+const botaoTerminar = document.getElementById('botaoTerminar');
+
+// Verificar se a pilha de exercícios não está vazia
+if (pilhaDeExercicios.length > 0) {
+    pilhaDeExercicios.forEach(exercicio => {
+        // Verificando se os dados do exercício estão corretamente definidos
+        if (exercicio.nome && exercicio.descricao && exercicio.urlImage) {
+            const divExercicio = document.createElement('div');
+            divExercicio.innerHTML = `
+<h3>${exercicio.nome}</h3>
+<p>${exercicio.descricao}</p>
+<img src="${exercicio.urlImage}" alt="${exercicio.nome}" class="img-fluid">
+<div>
+<div>
+<label for="peso1">Peso 1:</label>
+<input type="number" id="peso1" name="peso1" placeholder="Peso (kg)">
+<label for="repeticoes1">Repetições 1:</label>
+<input type="number" id="repeticoes1" name="repeticoes1" placeholder="Repetições">
+</div>
+<div>
+<label for="peso2">Peso 2:</label>
+<input type="number" id="peso2" name="peso2" placeholder="Peso (kg)">
+<label for="repeticoes2">Repetições 2:</label>
+<input type="number" id="repeticoes2" name="repeticoes2" placeholder="Repetições">
+</div>
+<div>
+<label for="peso3">Peso 3:</label>
+<input type="number" id="peso3" name="peso3" placeholder="Peso (kg)">
+<label for="repeticoes3">Repetições 3:</label>
+<input type="number" id="repeticoes3" name="repeticoes3" placeholder="Repetições">
+</div>
+<div>
+<label for="peso4">Peso 4:</label>
+<input type="number" id="peso4" name="peso4" placeholder="Peso (kg)">
+<label for="repeticoes4">Repetições 4:</label>
+<input type="number" id="repeticoes4" name="repeticoes4" placeholder="Repetições">
+</div>
+</div>
+<button id="botaoConfirma">Feito!</button>
+            `;
+            container.appendChild(divExercicio);
+
+            // Selecionando o botão "Feito!" para cada exercício
+            const botao = divExercicio.querySelector('#botaoConfirma');
+            botao.addEventListener('click', function() {
+                // Mudando a cor de fundo do botão para verde quando clicado
+                botao.style.backgroundColor = 'green';
+                botao.style.color = 'white';  // Para o texto ficar visível
+            });
+        }
+    });
+} else {
+    container.innerHTML = '<p>Nenhum exercício na pilha.</p>';
+}
+
+// Função que verifica se todos os botões estão verdes
+function todosExerciciosFeitos() {
+    const botoes = document.querySelectorAll('#botaoConfirma');
+    return Array.from(botoes).every(botao => botao.style.backgroundColor === 'green');
+}
+
+// Atualiza o evento do botão "Terminar Treino"
+botaoTerminar.addEventListener('click', function() {
+const relatorio = gerarRelatorio();
+
+// Salva o relatório no localStorage
+localStorage.setItem('relatorioTreino', JSON.stringify(relatorio));
+
+// Verifica se o treino foi concluído
+if (todosExerciciosFeitos()) {
+    alert('PARABÉNS, TREINO CONCLUÍDO!');
+} else {
+    if (confirm('Faltam exercícios, terminar mesmo assim?')) {
+        alert('Treino terminado!');
+    }
+}
+
+// Redireciona para a página do relatório
+window.location.href = 'relatorio.html';
+});
+// Função para limpar a pilha e a interface
+function limparTreino() {
+// Remove a pilha de exercícios do localStorage
+localStorage.removeItem('pilhaExercicios');
+
+// Limpa o conteúdo do container na interface
+container.innerHTML = '<p>Treino concluído. Boa recuperação!</p>';
+
+// Redireciona para a telaTreino.html
+setTimeout(() => {
+window.location.href = 'telaTreinos.html';
+}, 1000); // Pequeno atraso para permitir que o usuário veja a mensagem
+}
+// Função para calcular o total de peso levantado
+function gerarRelatorio() {
+const divsExercicios = document.querySelectorAll('#treinoContainer > div');
+let relatorio = [];
+
+divsExercicios.forEach(divExercicio => {
+    const nomeExercicio = divExercicio.querySelector('h3').textContent;
+    const urlImagem = divExercicio.querySelector('img').src;
+    let totalPeso = 0;
+    let maiorCarga = 0;
+
+    // Itera sobre os campos de peso e repetições
+    for (let i = 1; i <= 4; i++) {
+        const peso = parseFloat(divExercicio.querySelector(`#peso${i}`).value) || 0;
+        const repeticoes = parseFloat(divExercicio.querySelector(`#repeticoes${i}`).value) || 0;
+        totalPeso += peso * repeticoes;
+        if (peso > maiorCarga) maiorCarga = peso;
+    }
+
+    // Adiciona os dados ao relatório
+    relatorio.push({
+        nome: nomeExercicio,
+        imagem: urlImagem,
+        totalPeso: totalPeso.toFixed(2),
+        maiorCarga: maiorCarga.toFixed(2)
+    });
+});
+
+return relatorio;
+}
+
+</script>
+</body>
+</html>
+
+     
+   <!-- RODAPÉ -->
+   <footer class="site-footer">
+        <div class="container">
+             <div class="row">
+
+                  <div class="ml-auto col-lg-4 col-md-5">
+                      <p class="copyright-text">
+                      
+                      <br> <a href="https://www.tooplate.com"></a></p>
+             </div>
+        </div>
+   </footer>
+
+
+   <!-- SCRIPTS -->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/aos.js"></script>
+   <script src="js/smoothscroll.js"></script>
+   <script src="js/custom.js"></script>
+   <script src="js/mascaradetelefone.js"></script>
+
+</body>
+</html>
+

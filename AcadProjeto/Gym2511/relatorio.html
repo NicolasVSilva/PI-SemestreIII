@@ -1,0 +1,196 @@
+relatório.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    
+
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    
+    <!DOCTYPE html>
+    <html lang="pt">
+    <head>
+    
+         <title>EnvolveFit</title>
+    
+         <meta charset="UTF-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+         <meta name="description" content="">
+         <meta name="keywords" content="">
+         <meta name="author" content="">
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+         <link rel="stylesheet" href="css/bootstrap.min.css">
+         <link rel="stylesheet" href="css/font-awesome.min.css">
+         <link rel="stylesheet" href="css/aos.css">
+         <link rel="stylesheet" href="css/botao.css">
+    
+         <!-- CSS PRINCIPAL -->
+         <link rel="stylesheet" href="css/tooplate-gymso-style.css">
+    
+    </head>
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    
+        <!-- BARRA DE NAVEGAÇÃO -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+    
+                <a class="navbar-brand" href="indexLogado.html">EvolveFit</a>
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-lg-auto">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link smoothScroll">Ver treino</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link smoothScroll">Desconectar</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a href="#class" class="nav-link smoothScroll">Aulas</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a href="#schedule" class="nav-link smoothScroll">Tabela de Series</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a href="telaTreinos.html" class="nav-link smoothScroll">Mais Exercícios</a>
+                        </li>
+    
+                    </ul>
+    
+                    
+                </div>
+    
+            </div>
+        </nav>
+    
+    
+         <!-- HERO -->
+         <section class="hero9 d-flex flex-column justify-content-center align-items-center" id="home">
+    
+                <div class="bg-overlay"></div>
+    
+                   <div class="container">
+                        <div class="row">
+    
+                             <div class="col-lg-8 col-md-10 mx-auto col-12">
+    ''                              <div class="hero-text mt-5 text-center">
+    
+                                        <h6 data-aos="fade-up" data-aos-delay="300"></h6>
+    
+                                        <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Seu registro de treino!</h1>
+    
+                                  </div>
+                             </div>
+    
+                        </div>
+                   </div>
+         </section>
+    
+        
+    
+         
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meu Treino</title>
+        <style>
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .relatorio-container {
+            padding: 20px;
+        }
+        .exercicio {
+            margin-bottom: 30px;
+        }
+        .exercicio img {
+            max-width: 200px;
+            margin-right: 20px;
+        }
+        .detalhes {
+            display: flex;
+            align-items: center;
+        }
+        .detalhes div {
+            margin-right: 20px;
+        }
+        .detalhes h3 {
+            margin: 0;
+        }
+        .detalhes p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="relatorio-container" id="relatorioContainer">
+        <h1>Relatório de Treino</h1>
+    </div>
+
+    <script>
+        // Recupera o relatório armazenado no localStorage
+        const relatorio = JSON.parse(localStorage.getItem('relatorioTreino'));
+
+        if (relatorio && relatorio.length > 0) {
+            const container = document.getElementById('relatorioContainer');
+
+            relatorio.forEach(item => {
+                // Cria a estrutura para exibir os dados
+                const divExercicio = document.createElement('div');
+                divExercicio.classList.add('exercicio');
+
+                divExercicio.innerHTML = `
+                    <div class="detalhes">
+                        <img src="${item.imagem}" alt="${item.nome}">
+                        <div>
+                            <h3>${item.nome}</h3>
+                            <p><strong>Total Levantado:</strong> ${item.totalPeso} kg</p>
+                            <p><strong>Maior Carga:</strong> ${item.maiorCarga} kg</p>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(divExercicio);
+            });
+        } else {
+            document.getElementById('relatorioContainer').innerHTML = '<p>Nenhum treino registrado.</p>';
+        }
+    </script>
+
+     <!-- RODAPÉ -->
+     <footer class="site-footer">
+        <div class="container">
+             <div class="row">
+
+                  <div class="ml-auto col-lg-4 col-md-5">
+                      <p class="copyright-text">
+                      
+                      <br> <a href="https://www.tooplate.com"></a></p>
+             </div>
+        </div>
+   </footer>
+
+
+   <!-- SCRIPTS -->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/aos.js"></script>
+   <script src="js/smoothscroll.js"></script>
+   <script src="js/custom.js"></script>
+   <script src="js/mascaradetelefone.js"></script>
+
+</body>
+</html>
